@@ -1,6 +1,4 @@
 # lwditabaseschema
-lw dita schema, generated with Oxygen
-
 Defines a DITA-OT plugin containing LW DITA XML schema's, generated with Oxygen from DTD's standing in the plugins\org.oasis.lwdita\dtd
 
 ## Installation
