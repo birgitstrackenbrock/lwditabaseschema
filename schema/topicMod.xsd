@@ -8,6 +8,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
   <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="ditaarch.xsd"/>
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  
   <xs:group name="data">
     <xs:sequence>
       <xs:element ref="data"/>
@@ -15,15 +16,15 @@
   </xs:group>
   
   <xs:group name="ul">
-    <xs:sequence>
+    <xs:choice>
       <xs:element ref="ul"/>
-    </xs:sequence>
+    </xs:choice>
   </xs:group>
   
   <xs:group name="fig">
-    <xs:sequence>
+    <xs:choice>
       <xs:element ref="fig"/>
-    </xs:sequence>
+    </xs:choice>
   </xs:group>
   
   
@@ -54,7 +55,7 @@
   <xs:group name="table-blocks">
     <xs:choice>
       <xs:element ref="p"/>
-      <xs:element ref="ul"/>
+      <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
@@ -65,33 +66,33 @@
   <xs:group name="all-blocks">
     <xs:choice>
       <xs:element ref="p"/>
-      <xs:element ref="ul"/>
+      <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
       <xs:element ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
-      <xs:element ref="fig"/>
+      <xs:group ref="fig"/>
     </xs:choice>
   </xs:group>
   <xs:group name="list-blocks">
     <xs:choice>
       <xs:element ref="p"/>
-      <xs:element ref="ul"/>
+      <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
       <xs:element ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
-      <xs:element ref="fig"/>
+      <xs:group ref="fig"/>
     </xs:choice>
   </xs:group>
   <xs:group name="fig-blocks">
     <xs:choice>
       <xs:element ref="p"/>
-      <xs:element ref="ul"/>
+      <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
