@@ -13,6 +13,20 @@
       <xs:element ref="data"/>
     </xs:sequence>
   </xs:group>
+  
+  <xs:group name="ul">
+    <xs:sequence>
+      <xs:element ref="ul"/>
+    </xs:sequence>
+  </xs:group>
+  
+  <xs:group name="fig">
+    <xs:sequence>
+      <xs:element ref="fig"/>
+    </xs:sequence>
+  </xs:group>
+  
+  
   <!-- remove below -->
   <!-- ============================================================= -->
   <!-- COMMON DECLARATIONS -->
