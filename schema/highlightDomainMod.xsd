@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- highlighting domain - class prefix hi-d -->
+<!--
+  add to ph element in doctype shell: 
+  b | u | i | sup | sub 
+-->
+<!--
+  add to included-domains in doctype shell:
+  (topic hi-d)
+-->
+<!-- LONG NAME: Bold content -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="ditaarch.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="b">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="b-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="b-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph hi-d/b "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Italic content -->
+  <xs:element name="i">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="i-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="i-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph hi-d/i "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Underlined content -->
+  <xs:element name="u">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="u-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="u-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph hi-d/u "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Superscript content -->
+  <xs:element name="sup">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="sup-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="sup-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph hi-d/sup "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Subscript content -->
+  <xs:element name="sub">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="sub-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="sub-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph hi-d/sub "/>
+  </xs:attributeGroup>
+</xs:schema>

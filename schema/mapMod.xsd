@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!-- DOMAINS ATTRIBUTE OVERRIDE -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- EXTENSION POINTS -->
+<!-- ============================================================= -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="ditaarch.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <!-- ============================================================= -->
+  <!-- COMMON DECLARATIONS -->
+  <!-- ============================================================= -->
+  <xs:group name="all-inline">
+    <xs:sequence>
+      <xs:group minOccurs="0" ref="ph"/>
+    </xs:sequence>
+  </xs:group>
+  <!-- common attributes -->
+  <xs:attributeGroup name="filters">
+    <xs:attribute name="props"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="reuse">
+    <xs:attribute name="id" type="xs:NMTOKEN"/>
+    <xs:attribute name="conref"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="reference-content">
+    <xs:attribute name="href"/>
+    <xs:attribute name="format"/>
+    <xs:attribute name="scope">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="local"/>
+          <xs:enumeration value="peer"/>
+          <xs:enumeration value="external"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="control-variables">
+    <xs:attribute name="keys"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="variable-content">
+    <xs:attribute name="keyref"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="variable-links">
+    <xs:attribute name="keyref"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="localization">
+    <xs:attribute name="dir"/>
+    <xs:attribute ref="xml:lang"/>
+    <xs:attribute name="translate"/>
+  </xs:attributeGroup>
+  <!-- ============================================================= -->
+  <!-- ELEMENT DECLARATIONS -->
+  <!-- ============================================================= -->
+  <!-- LONG NAME: Map -->
+  <xs:element name="map">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="topicmeta"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="topicref"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="map-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="map-attlist">
+    <xs:attribute name="id" use="required" type="xs:ID"/>
+    <xs:attribute ref="ditaarch:DITAArchVersion" default="1.3"/>
+    <xs:attribute name="domains" default="(hi-d)"/>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- map/map "/>
+  </xs:attributeGroup>
+  <!--                     LONG NAME: Metadata -->
+  <xs:element name="topicmeta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="navtitle"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="data"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="topicmeta-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="topicmeta-attlist">
+    <xs:attribute name="class" default="- map/topicmeta "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Navigation title -->
+  <xs:element name="navtitle">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="ph"/>
+      <xs:attributeGroup ref="navtitle-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="navtitle-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- topic/navtitle "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Data -->
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="data"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="data-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="data-attlist">
+    <xs:attribute name="name"/>
+    <xs:attribute name="value"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/data "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Phrase content -->
+  <xs:element name="ph">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="ph-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="ph-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Topic or Map Reference -->
+  <xs:element name="topicref">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="topicmeta"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="topicref"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="topicref-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="topicref-attlist">
+    <xs:attribute name="locktitle" default="yes">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="yes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reference-content"/>
+    <xs:attributeGroup ref="control-variables"/>
+    <xs:attributeGroup ref="variable-links"/>
+    <xs:attribute name="class" default="- map/topicref "/>
+  </xs:attributeGroup>
+</xs:schema>
+<!--
+   
+  
+  
+-->

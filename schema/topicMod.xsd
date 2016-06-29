@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!-- DOMAINS ATTRIBUTE OVERRIDE -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- EXTENSION POINTS -->
+<!-- ============================================================= -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="ditaarch.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:group name="data">
+    <xs:sequence>
+      <xs:element ref="data"/>
+    </xs:sequence>
+  </xs:group>
+  <!-- remove below -->
+  <!-- ============================================================= -->
+  <!-- COMMON DECLARATIONS -->
+  <!-- ============================================================= -->
+  <!-- common content models -->
+  <xs:group name="common-inline">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:group ref="ph"/>
+        <xs:element ref="image"/>
+        <xs:group ref="data"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="all-inline">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:group ref="ph"/>
+        <xs:element ref="image"/>
+        <xs:element ref="xref"/>
+        <xs:group ref="data"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="table-blocks">
+    <xs:choice>
+      <xs:element ref="p"/>
+      <xs:element ref="ul"/>
+      <xs:element ref="ol"/>
+      <xs:element ref="dl"/>
+      <xs:element ref="pre"/>
+      <xs:element ref="audio"/>
+      <xs:element ref="video"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="all-blocks">
+    <xs:choice>
+      <xs:element ref="p"/>
+      <xs:element ref="ul"/>
+      <xs:element ref="ol"/>
+      <xs:element ref="dl"/>
+      <xs:element ref="pre"/>
+      <xs:element ref="audio"/>
+      <xs:element ref="video"/>
+      <xs:element ref="simpletable"/>
+      <xs:element ref="fig"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="list-blocks">
+    <xs:choice>
+      <xs:element ref="p"/>
+      <xs:element ref="ul"/>
+      <xs:element ref="ol"/>
+      <xs:element ref="dl"/>
+      <xs:element ref="pre"/>
+      <xs:element ref="audio"/>
+      <xs:element ref="video"/>
+      <xs:element ref="simpletable"/>
+      <xs:element ref="fig"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="fig-blocks">
+    <xs:choice>
+      <xs:element ref="p"/>
+      <xs:element ref="ul"/>
+      <xs:element ref="ol"/>
+      <xs:element ref="dl"/>
+      <xs:element ref="pre"/>
+      <xs:element ref="audio"/>
+      <xs:element ref="video"/>
+      <xs:element ref="simpletable"/>
+    </xs:choice>
+  </xs:group>
+  <!-- common attributes -->
+  <xs:attributeGroup name="filters">
+    <xs:attribute name="props"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="reuse">
+    <xs:attribute name="id" type="xs:NMTOKEN"/>
+    <xs:attribute name="conref"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="variable-content">
+    <xs:attribute name="keyref"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="variable-links">
+    <xs:attribute name="keyref"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="localization">
+    <xs:attribute name="dir"/>
+    <xs:attribute ref="xml:lang"/>
+    <xs:attribute name="translate"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="display-atts">
+    <xs:attribute name="scale">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="50"/>
+          <xs:enumeration value="60"/>
+          <xs:enumeration value="70"/>
+          <xs:enumeration value="80"/>
+          <xs:enumeration value="90"/>
+          <xs:enumeration value="100"/>
+          <xs:enumeration value="110"/>
+          <xs:enumeration value="120"/>
+          <xs:enumeration value="140"/>
+          <xs:enumeration value="160"/>
+          <xs:enumeration value="180"/>
+          <xs:enumeration value="200"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="frame">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="all"/>
+          <xs:enumeration value="bottom"/>
+          <xs:enumeration value="none"/>
+          <xs:enumeration value="sides"/>
+          <xs:enumeration value="top"/>
+          <xs:enumeration value="topbot"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="expanse">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="column"/>
+          <xs:enumeration value="page"/>
+          <xs:enumeration value="spread"/>
+          <xs:enumeration value="textline"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="fig.attributes">
+    <xs:attributeGroup ref="display-atts"/>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="outputclass"/>
+  </xs:attributeGroup>
+  <!-- ============================================================= -->
+  <!-- ELEMENT DECLARATIONS -->
+  <!-- ============================================================= -->
+  <!-- LONG NAME: Topic -->
+  <xs:element name="topic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element minOccurs="0" ref="shortdesc"/>
+        <xs:element minOccurs="0" ref="prolog"/>
+        <xs:element ref="body"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="topic-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="topic-attlist">
+    <xs:attribute name="id" use="required" type="xs:ID"/>
+    <xs:attribute ref="ditaarch:DITAArchVersion" default="1.3"/>
+    <xs:attribute name="domains" default="(hi-d) (topic h5m-d)"/>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- topic/topic "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Title -->
+  <xs:element name="title">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="common-inline"/>
+      <xs:attributeGroup ref="title-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="title-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- topic/title "/>
+  </xs:attributeGroup>
+  <!--                     LONG NAME: Short description -->
+  <xs:element name="shortdesc">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="shortdesc-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="shortdesc-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- topic/shortdesc "/>
+  </xs:attributeGroup>
+  <!--                     LONG NAME: Prolog -->
+  <xs:element name="prolog">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="data"/>
+      <xs:attributeGroup ref="prolog-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="prolog-attlist">
+    <xs:attribute name="class" default="- topic/prolog "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Body -->
+  <xs:element name="body">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-blocks"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="section"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="body-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="body-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- topic/body "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Section -->
+  <xs:element name="section">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="title"/>
+        <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-blocks"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="section-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="section-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/section "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Paragraph -->
+  <xs:element name="p">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="p-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="p-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/p "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Unordered list -->
+  <xs:element name="ul">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="li"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="ul-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="ul-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/ul "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Ordered list -->
+  <xs:element name="ol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="li"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="ol-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="ol-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/ol "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: List item -->
+  <xs:element name="li">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="list-blocks"/>
+      <xs:attributeGroup ref="li-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="li-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/li "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Description list -->
+  <xs:element name="dl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="dlentry"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="dl-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="dl-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/dl "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Description entry -->
+  <xs:element name="dlentry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dt"/>
+        <xs:element ref="dd"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="dlentry-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="dlentry-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/dlentry "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Description term -->
+  <xs:element name="dt">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="dt-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="dt-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/dt "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Description -->
+  <xs:element name="dd">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="list-blocks"/>
+      <xs:attributeGroup ref="dd-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="dd-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/dd "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Preformatted content -->
+  <xs:element name="pre">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="pre-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="pre-attlist">
+    <xs:attribute ref="xml:space" default="preserve"/>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/pre "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Table -->
+  <xs:element name="simpletable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="sthead"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="strow"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="simpletable-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="simpletable-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/simpletable "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Table header row -->
+  <xs:element name="sthead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="stentry"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="sthead-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="sthead-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/sthead "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Table row -->
+  <xs:element name="strow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="stentry"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="strow-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="strow-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/strow "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Table cell -->
+  <xs:element name="stentry">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="table-blocks"/>
+      <xs:attributeGroup ref="stentry-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="stentry-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/stentry "/>
+  </xs:attributeGroup>
+  <xs:element name="fig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="title"/>
+        <xs:element minOccurs="0" ref="desc"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:group ref="fig-blocks"/>
+          <xs:element ref="image"/>
+          <xs:element ref="data"/>
+          <xs:element ref="xref"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attributeGroup ref="fig-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    fig-blocks: "p|ul|ol|dl|pre|audio|video|simpletable">
+    plus (image|data|xref))
+  -->
+  <xs:attributeGroup name="fig-attlist">
+    <xs:attributeGroup ref="fig.attributes"/>
+    <xs:attribute name="class" default="- topic/fig "/>
+  </xs:attributeGroup>
+  <!-- {{mg:}} object will be removed very soon -->
+  <!--                     LONG NAME: Object -->
+  <xs:element name="object">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="desc"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="param"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="object-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="object-attlist">
+    <xs:attribute name="data"/>
+    <xs:attribute name="type"/>
+    <xs:attribute name="height" type="xs:NMTOKEN"/>
+    <xs:attribute name="width" type="xs:NMTOKEN"/>
+    <xs:attribute name="name"/>
+    <xs:attribute name="usemap"/>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="- topic/object "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Description -->
+  <xs:element name="desc">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="common-inline"/>
+      <xs:attributeGroup ref="desc-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="desc-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="- topic/desc "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Object parameter -->
+  <xs:element name="param">
+    <xs:complexType>
+      <xs:attributeGroup ref="param-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="param-attlist">
+    <xs:attribute name="name" use="required"/>
+    <xs:attribute name="value"/>
+    <xs:attribute name="class" default="- topic/param "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Phrase content -->
+  <xs:element name="ph">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-inline"/>
+      <xs:attributeGroup ref="ph-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="ph-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/ph "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Image -->
+  <xs:element name="image">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="alt"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="image-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="image-attlist">
+    <xs:attribute name="href"/>
+    <xs:attribute name="height" type="xs:NMTOKEN"/>
+    <xs:attribute name="width" type="xs:NMTOKEN"/>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/image "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Alternative content -->
+  <xs:element name="alt">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="common-inline"/>
+      <xs:attributeGroup ref="alt-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="alt-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/alt "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Data -->
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="data"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="data-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="data-attlist">
+    <xs:attribute name="name"/>
+    <xs:attribute name="value"/>
+    <xs:attributeGroup ref="variable-content"/>
+    <xs:attribute name="class" default="- topic/data "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Reference -->
+  <xs:element name="xref">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="common-inline"/>
+      <xs:attributeGroup ref="xref-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="xref-attlist">
+    <xs:attribute name="href"/>
+    <xs:attribute name="format"/>
+    <xs:attribute name="scope">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="local"/>
+          <xs:enumeration value="peer"/>
+          <xs:enumeration value="external"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attributeGroup ref="localization"/>
+    <xs:attributeGroup ref="variable-links"/>
+    <xs:attribute name="class" default="- topic/xref "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Audio -->
+  <xs:element name="audio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="fallback"/>
+        <xs:element minOccurs="0" ref="controls"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="source"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="track"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="audio-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="audio-attlist">
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="+ topic/object h5m-d/audio "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Video -->
+  <xs:element name="video">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="fallback"/>
+        <xs:element minOccurs="0" ref="controls"/>
+        <xs:element minOccurs="0" ref="poster"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="source"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="track"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="video-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="video-attlist">
+    <xs:attributeGroup ref="filters"/>
+    <xs:attributeGroup ref="reuse"/>
+    <xs:attribute name="class" default="+ topic/object h5m-d/video "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Fallback -->
+  <xs:element name="fallback">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="common-inline"/>
+      <xs:attributeGroup ref="fallback-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="fallback-attlist">
+    <xs:attributeGroup ref="localization"/>
+    <xs:attribute name="class" default="+ topic/desc h5m-d/fallback "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Display controls -->
+  <xs:element name="controls">
+    <xs:complexType>
+      <xs:attributeGroup ref="controls-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="controls-attlist">
+    <xs:attribute name="name" default="controls">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="controls"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="class" default="+ topic/param h5m-d/controls "/>
+  </xs:attributeGroup>
+  <!-- value      CDATA         (y|n)  "y" -->
+  <!-- LONG NAME: Poster image -->
+  <xs:element name="poster">
+    <xs:complexType>
+      <xs:attributeGroup ref="poster-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="poster-attlist">
+    <xs:attribute name="name" default="poster">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="poster"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value"/>
+    <xs:attribute name="class" default="- topic/param h5m-d/poster "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Source -->
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:attributeGroup ref="source-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="source-attlist">
+    <xs:attribute name="name" default="source">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="source"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value"/>
+    <xs:attribute name="class" default="- topic/param h5m-d/source "/>
+  </xs:attributeGroup>
+  <!-- LONG NAME: Track for captions -->
+  <xs:element name="track">
+    <xs:complexType>
+      <xs:attributeGroup ref="track-attlist"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="track-attlist">
+    <xs:attribute name="name" default="track">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="track"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value"/>
+    <xs:attribute name="class" default="- topic/param h5m-d/track "/>
+  </xs:attributeGroup>
+</xs:schema>
