@@ -27,6 +27,12 @@
     </xs:choice>
   </xs:group>
   
+  <xs:group name="section">
+    <xs:choice>
+      <xs:element ref="section"/>
+    </xs:choice>
+  </xs:group>
+  
   
   <!-- remove below -->
   <!-- ============================================================= -->
@@ -226,7 +232,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-blocks"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="section"/>
+        <xs:group minOccurs="0" maxOccurs="unbounded" ref="section"/>
       </xs:sequence>
       <xs:attributeGroup ref="body-attlist"/>
     </xs:complexType>
