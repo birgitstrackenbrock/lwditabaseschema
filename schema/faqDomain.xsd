@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!-- DOMAINS ATTRIBUTE OVERRIDE -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- EXTENSION POINTS -->
+<!-- ============================================================= -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="urn:lw:names:dita:xsd:ditaarch.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="urn:lw:names:dita:xsd:xml.xsd"/>
+  
+  <xs:annotation>
+    <xs:appinfo>
+      <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic faq-d)</dita:domainsModule>
+    </xs:appinfo>
+  </xs:annotation>
+  
+  <xs:group name="questionandanswer">
+    <xs:sequence>
+      <xs:choice>
+      	<xs:element ref="questionandanswer"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  
+  <xs:group name="question">
+    <xs:sequence>
+      <xs:choice>
+      	<xs:element ref="question"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  
+  <xs:group name="answer">
+    <xs:sequence>
+      <xs:choice>
+      	<xs:element ref="answer"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  
+  
+  <!-- elements -->
+	<xs:element name="questionandanswer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="question"/>
+				<xs:group ref="answer"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="questionandanswer-attlist"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="questionandanswer-attlist">
+		<xs:attributeGroup ref="localization"/>
+		<xs:attributeGroup ref="filters"/>
+		<xs:attributeGroup ref="reuse"/>
+		<xs:attribute name="class" default="- topic/ul faq-d/questionandanswer "/>
+	</xs:attributeGroup>
+  
+	<xs:element name="question">
+		<xs:complexType>
+			<xs:group minOccurs="0" maxOccurs="unbounded" ref="list-blocks"/>
+			<xs:attributeGroup ref="question-attlist"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="question-attlist">
+		<xs:attributeGroup ref="localization"/>
+		<xs:attributeGroup ref="filters"/>
+		<xs:attributeGroup ref="reuse"/>
+		<xs:attribute name="class" default="- topic/li faq-d/question "/>
+	</xs:attributeGroup>
+	
+	<xs:element name="answer">
+		<xs:complexType>
+			<xs:group minOccurs="0" maxOccurs="unbounded" ref="list-blocks"/>
+			<xs:attributeGroup ref="answer-attlist"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="answer-attlist">
+		<xs:attributeGroup ref="localization"/>
+		<xs:attributeGroup ref="filters"/>
+		<xs:attributeGroup ref="reuse"/>
+		<xs:attribute name="class" default="- topic/li faq-d/answer "/>
+	</xs:attributeGroup>
+  
+</xs:schema>

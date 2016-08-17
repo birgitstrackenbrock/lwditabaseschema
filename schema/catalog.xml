@@ -25,6 +25,24 @@
 	<uri name="mapMod.xsd" uri="mapMod.xsd" />
 	<uri name="urn:lw:names:dita:xsd:mapMod.xsd" uri="mapMod.xsd" />
 
+	<system systemId="faqtopic.xsd" uri="faqtopic.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:faqtopic.xsd" uri="faqtopic.xsd" />
+
+	<uri name="faqtopic.xsd" uri="faqtopic.xsd" />
+	<uri name="urn:lw:names:dita:xsd:faqtopic.xsd" uri="faqtopic.xsd" />
+
+	<system systemId="faqMod.xsd" uri="faqMod.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:faqMod.xsd" uri="faqMod.xsd" />
+
+	<uri name="faqMod.xsd" uri="faqMod.xsd" />
+	<uri name="urn:lw:names:dita:xsd:faqMod.xsd" uri="faqMod.xsd" />
+
+	<system systemId="faqDomain.xsd" uri="faqDomain.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:faqDomain.xsd" uri="faqDomain.xsd" />
+
+	<uri name="faqDomain.xsd" uri="faqDomain.xsd" />
+	<uri name="urn:lw:names:dita:xsd:faqDomain.xsd" uri="faqDomain.xsd" />
+
 	<system systemId="legaltopic.xsd" uri="legaltopic.xsd" />
 	<system systemId="urn:lw:names:dita:xsd:legaltopic.xsd" uri="legaltopic.xsd" />
 

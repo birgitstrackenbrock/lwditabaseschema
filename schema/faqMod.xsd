@@ -9,57 +9,50 @@
   <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="ditaarch.xsd"/>
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
   
-  <xs:group name="legaltopic">
+  <xs:group name="faqtopic">
     <xs:sequence>
-      <xs:element ref="legaltopic"/>
+      <xs:element ref="faqtopic"/>
     </xs:sequence>
   </xs:group>
   
-  <xs:group name="legalbody">
+  <xs:group name="faqbody">
     <xs:sequence>
-      <xs:element ref="legalbody"/>
+      <xs:element ref="faqbody"/>
     </xs:sequence>
   </xs:group>
   
   <!-- ============================================================= -->
   <!-- ELEMENT DECLARATIONS -->
   <!-- ============================================================= -->
-  <!-- LONG NAME: Legal information Topic -->
-  <xs:element name="legaltopic">
+	<!-- LONG NAME: Frequently asked questions Topic -->
+  <xs:element name="faqtopic">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="title"/>
         <xs:element minOccurs="0" ref="shortdesc"/>
         <xs:element minOccurs="0" ref="prolog"/>
-        <xs:group ref="legalbody"/>
+        <xs:group ref="faqbody"/>
       </xs:sequence>
-      <xs:attributeGroup ref="legaltopic-attlist"/>
+    	<xs:attributeGroup ref="faqtopic-attlist"/>
     </xs:complexType>
   </xs:element>
-  <xs:attributeGroup name="legaltopic-attlist">
+	<xs:attributeGroup name="faqtopic-attlist">
     <xs:attribute name="id" use="required" type="xs:ID"/>
     <xs:attribute ref="ditaarch:DITAArchVersion" default="1.3"/>
     <xs:attribute name="domains" default="(hi-d) (topic h5m-d)"/>
     <xs:attributeGroup ref="localization"/>
-    <xs:attribute name="class" default="- topic/topic legaltopic/legaltopic "/>
+		<xs:attribute name="class" default="- topic/topic faqtopic/faqtopic "/>
   </xs:attributeGroup>
   
-  <xs:element name="legalbody">
+	<xs:element name="faqbody">
     <xs:complexType>
-      <xs:sequence>
-        <xs:group minOccurs="0" maxOccurs="unbounded" ref="all-blocks"/>
-        <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element ref="section"/>
-          <xs:group ref="legalsection" />
-          <xs:group ref="disclaimer"/>
-        </xs:choice>
-      </xs:sequence>
-      <xs:attributeGroup ref="legalbody-attlist"/>
+        <xs:group minOccurs="0" maxOccurs="unbounded" ref="questionandanswer" />
+    	<xs:attributeGroup ref="faqbody-attlist"/>
     </xs:complexType>
   </xs:element>
-  <xs:attributeGroup name="legalbody-attlist">
+	<xs:attributeGroup name="faqbody-attlist">
     <xs:attributeGroup ref="localization"/>
-    <xs:attribute name="class" default="- topic/body legaltopic/legalbody "/>
+		<xs:attribute name="class" default="- topic/body faqtopic/faqbody "/>
   </xs:attributeGroup>
   
 </xs:schema>
