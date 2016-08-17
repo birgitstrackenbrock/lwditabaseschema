@@ -32,6 +32,12 @@
       <xs:element ref="section"/>
     </xs:choice>
   </xs:group>
+	
+	<xs:group name="audio">
+		<xs:choice>
+			<xs:element ref="audio"/>
+		</xs:choice>
+	</xs:group>
   
   
   <!-- remove below -->
@@ -65,7 +71,7 @@
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:element ref="audio"/>
+      <xs:group ref="audio"/>
       <xs:element ref="video"/>
     </xs:choice>
   </xs:group>
@@ -76,7 +82,7 @@
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:element ref="audio"/>
+      <xs:group ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
       <xs:group ref="fig"/>
@@ -89,7 +95,7 @@
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:element ref="audio"/>
+      <xs:group ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
       <xs:group ref="fig"/>
@@ -102,7 +108,7 @@
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:element ref="audio"/>
+      <xs:group ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
     </xs:choice>
