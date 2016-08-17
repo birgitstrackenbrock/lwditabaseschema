@@ -38,6 +38,12 @@
 			<xs:element ref="audio"/>
 		</xs:choice>
 	</xs:group>
+	
+	<xs:group name="ph">
+		<xs:choice>
+			<xs:element ref="ph"/>
+		</xs:choice>
+	</xs:group>
   
   
   <!-- remove below -->
