@@ -1,47 +1,64 @@
 <?xml version="1.0" ?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" id="lwbs">
-       
-              <system systemId="topic.xsd" uri="topic.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:topic.xsd" uri="topic.xsd" />
-              
-              <uri name="topic.xsd" uri="topic.xsd" />
-              <uri name="urn:lw:names:dita:xsd:topic.xsd" uri="topic.xsd" />
-              
-              <system systemId="topicMod.xsd" uri="topicMod.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:topicMod.xsd" uri="topicMod.xsd" />
-              
-              <uri name="" uri="topicMod.xsd" />
-              <uri name="urn:lw:names:dita:xsd:topicMod.xsd" uri="topicMod.xsd" />
-              
-              <system systemId="map.xsd" uri="map.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:map.xsd" uri="map.xsd" />
-              
-              <uri name="map.xsd" uri="map.xsd" />
-              <uri name="urn:lw:names:dita:xsd:map.xsd" uri="map.xsd" />
-              
-              <system systemId="mapMod.xsd" uri="mapMod.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:mapMod.xsd" uri="mapMod.xsd" />
-              
-              <uri name="mapMod.xsd" uri="mapMod.xsd" />
-              <uri name="urn:lw:names:dita:xsd:mapMod.xsd" uri="mapMod.xsd" />
-              
-              <system systemId="highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
-              
-              <uri name="highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
-              <uri name="urn:lw:names:dita:xsd:highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
-              
-              <system systemId="ditaarch.xsd" uri="ditaarch.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:ditaarch.xsd" uri="ditaarch.xsd" />
-              
-              <uri name="ditaarch.xsd" uri="ditaarch.xsd" />
-              <uri name="urn:lw:names:dita:xsd:ditaarch.xsd" uri="ditaarch.xsd" />
-              
-              <system systemId="xml.xsd" uri="xml.xsd" />
-              <system systemId="urn:lw:names:dita:xsd:xml.xsd" uri="xml.xsd" />
-              
-              <uri name="xml.xsd" uri="xml.xsd" />
-              <uri name="urn:lw:names:dita:xsd:xml.xsd" uri="xml.xsd" />
 
-      
+	<system systemId="topic.xsd" uri="topic.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:topic.xsd" uri="topic.xsd" />
+
+	<uri name="topic.xsd" uri="topic.xsd" />
+	<uri name="urn:lw:names:dita:xsd:topic.xsd" uri="topic.xsd" />
+
+	<system systemId="topicMod.xsd" uri="topicMod.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:topicMod.xsd" uri="topicMod.xsd" />
+
+	<uri name="" uri="topicMod.xsd" />
+	<uri name="urn:lw:names:dita:xsd:topicMod.xsd" uri="topicMod.xsd" />
+
+	<system systemId="map.xsd" uri="map.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:map.xsd" uri="map.xsd" />
+
+	<uri name="map.xsd" uri="map.xsd" />
+	<uri name="urn:lw:names:dita:xsd:map.xsd" uri="map.xsd" />
+
+	<system systemId="mapMod.xsd" uri="mapMod.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:mapMod.xsd" uri="mapMod.xsd" />
+
+	<uri name="mapMod.xsd" uri="mapMod.xsd" />
+	<uri name="urn:lw:names:dita:xsd:mapMod.xsd" uri="mapMod.xsd" />
+
+	<system systemId="legaltopic.xsd" uri="legaltopic.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:legaltopic.xsd" uri="legaltopic.xsd" />
+
+	<uri name="legaltopic.xsd" uri="legaltopic.xsd" />
+	<uri name="urn:lw:names:dita:xsd:legaltopic.xsd" uri="legaltopic.xsd" />
+
+	<system systemId="legalMod.xsd" uri="legalMod.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:legalMod.xsd" uri="legalMod.xsd" />
+
+	<uri name="legalMod.xsd" uri="legalMod.xsd" />
+	<uri name="urn:lw:names:dita:xsd:legalMod.xsd" uri="legalMod.xsd" />
+
+	<system systemId="legalDomain.xsd" uri="legalDomain.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:legalDomain.xsd" uri="legalDomain.xsd" />
+
+	<uri name="legalDomain.xsd" uri="legalDomain.xsd" />
+	<uri name="urn:lw:names:dita:xsd:legalDomain.xsd" uri="legalDomain.xsd" />
+
+	<system systemId="highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
+
+	<uri name="highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
+	<uri name="urn:lw:names:dita:xsd:highlightDomainMod.xsd" uri="highlightDomainMod.xsd" />
+
+	<system systemId="ditaarch.xsd" uri="ditaarch.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:ditaarch.xsd" uri="ditaarch.xsd" />
+
+	<uri name="ditaarch.xsd" uri="ditaarch.xsd" />
+	<uri name="urn:lw:names:dita:xsd:ditaarch.xsd" uri="ditaarch.xsd" />
+
+	<system systemId="xml.xsd" uri="xml.xsd" />
+	<system systemId="urn:lw:names:dita:xsd:xml.xsd" uri="xml.xsd" />
+
+	<uri name="xml.xsd" uri="xml.xsd" />
+	<uri name="urn:lw:names:dita:xsd:xml.xsd" uri="xml.xsd" />
+
 </catalog>
