@@ -10,7 +10,7 @@
 	<system systemId="topicMod.xsd" uri="topicMod.xsd" />
 	<system systemId="urn:lw:names:dita:xsd:topicMod.xsd" uri="topicMod.xsd" />
 
-	<uri name="" uri="topicMod.xsd" />
+	<uri name="topicMod.xsd" uri="topicMod.xsd" />
 	<uri name="urn:lw:names:dita:xsd:topicMod.xsd" uri="topicMod.xsd" />
 
 	<system systemId="map.xsd" uri="map.xsd" />

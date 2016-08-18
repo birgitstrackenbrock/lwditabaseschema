@@ -33,9 +33,9 @@
     </xs:choice>
   </xs:group>
 	
-	<xs:group name="audio">
+	<xs:group name="p">
 		<xs:choice>
-			<xs:element ref="audio"/>
+			<xs:element ref="p"/>
 		</xs:choice>
 	</xs:group>
 	
@@ -72,23 +72,23 @@
   </xs:group>
   <xs:group name="table-blocks">
     <xs:choice>
-      <xs:element ref="p"/>
+      <xs:group ref="p"/>
       <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:group ref="audio"/>
+      <xs:element ref="audio"/>
       <xs:element ref="video"/>
     </xs:choice>
   </xs:group>
   <xs:group name="all-blocks">
     <xs:choice>
-      <xs:element ref="p"/>
+      <xs:group ref="p"/>
       <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:group ref="audio"/>
+      <xs:element ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
       <xs:group ref="fig"/>
@@ -96,12 +96,12 @@
   </xs:group>
   <xs:group name="list-blocks">
     <xs:choice>
-      <xs:element ref="p"/>
+      <xs:group ref="p"/>
       <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:group ref="audio"/>
+      <xs:element ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
       <xs:group ref="fig"/>
@@ -109,12 +109,12 @@
   </xs:group>
   <xs:group name="fig-blocks">
     <xs:choice>
-      <xs:element ref="p"/>
+      <xs:group ref="p"/>
       <xs:group ref="ul"/>
       <xs:element ref="ol"/>
       <xs:element ref="dl"/>
       <xs:element ref="pre"/>
-      <xs:group ref="audio"/>
+      <xs:element ref="audio"/>
       <xs:element ref="video"/>
       <xs:element ref="simpletable"/>
     </xs:choice>
