@@ -74,16 +74,13 @@
   <!--                     LONG NAME: Metadata -->
   <xs:element name="topicmeta">
     <xs:complexType>
-      <xs:group ref="topicmeta.content"/>
+    	<xs:sequence>
+    		<xs:element minOccurs="0" ref="navtitle"/>
+    		<xs:element minOccurs="0" maxOccurs="unbounded" ref="data"/>
+    	</xs:sequence>
       <xs:attributeGroup ref="topicmeta-attlist"/>
     </xs:complexType>
   </xs:element>
-	<xs:group name="topicmeta.content">
-		<xs:sequence>
-			<xs:element minOccurs="0" ref="navtitle"/>
-			<xs:element minOccurs="0" maxOccurs="unbounded" ref="data"/>
-		</xs:sequence>
-	</xs:group>
   <xs:attributeGroup name="topicmeta-attlist">
     <xs:attribute name="class" default="- map/topicmeta "/>
   </xs:attributeGroup>

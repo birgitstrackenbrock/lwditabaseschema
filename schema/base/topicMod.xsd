@@ -232,15 +232,10 @@
   <!--                     LONG NAME: Prolog -->
   <xs:element name="prolog">
     <xs:complexType>
-    	<xs:group ref="prolog.content"/>
+    	<xs:group minOccurs="0" maxOccurs="unbounded" ref="data"/>
       <xs:attributeGroup ref="prolog-attlist"/>
     </xs:complexType>
   </xs:element>
-	<xs:group name="prolog.content">
-		<xs:sequence>
-			<xs:group minOccurs="0" maxOccurs="unbounded" ref="data"/>
-		</xs:sequence>
-	</xs:group>
   <xs:attributeGroup name="prolog-attlist">
     <xs:attribute name="class" default="- topic/prolog "/>
   </xs:attributeGroup>
