@@ -9,7 +9,9 @@ From {DITA_OT_PATH} run ant -f integrator.xml
 ## Author information
 The lwditamarketing has been created by Birgit Strackenbrock (XStructuring).
 
-## legal topic
+## Extra
+
+### Legal topic
 
 This topic type is extra added to the base element and can be used to contain the legal information of a document.
 
@@ -21,7 +23,7 @@ This topic type is extra added to the base element and can be used to contain th
        * copyrightyear - date since protection is active (based on topic/ph)
        * copyrightholder - holder of the copyright (based on topic/ph)
 
-## faq topic
+### Faq topic
 
 This topic type is extra added to the base element and can be used to contain the frequently asked questions of a document.
 
