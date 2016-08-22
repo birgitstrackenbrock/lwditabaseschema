@@ -44,6 +44,12 @@
 			<xs:element ref="ph"/>
 		</xs:choice>
 	</xs:group>
+	
+	<xs:group name="xref">
+		<xs:choice>
+			<xs:element ref="xref"/>
+		</xs:choice>
+	</xs:group>
   
   
   <!-- remove below -->
@@ -65,7 +71,7 @@
       <xs:choice minOccurs="0">
         <xs:group ref="ph"/>
         <xs:element ref="image"/>
-        <xs:element ref="xref"/>
+        <xs:group ref="xref"/>
         <xs:group ref="data"/>
       </xs:choice>
     </xs:sequence>
@@ -464,7 +470,7 @@
           <xs:group ref="fig-blocks"/>
           <xs:element ref="image"/>
           <xs:element ref="data"/>
-          <xs:element ref="xref"/>
+          <xs:group ref="xref"/>
         </xs:choice>
       </xs:sequence>
       <xs:attributeGroup ref="fig-attlist"/>
