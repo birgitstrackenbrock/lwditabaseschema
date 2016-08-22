@@ -11,6 +11,12 @@
   <!-- ============================================================= -->
   <!-- COMMON DECLARATIONS -->
   <!-- ============================================================= -->
+	<xs:group name="ph">
+		<xs:choice>
+			<xs:element ref="ph"/>
+		</xs:choice>
+	</xs:group>
+	
   <xs:group name="all-inline">
     <xs:sequence>
       <xs:group minOccurs="0" ref="ph"/>
